@@ -291,8 +291,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // bits 11..13 are player move type bits (ZQuake extension)
 #define PF_PMC_SHIFT	11
 #define	PF_PMC_MASK		7
+#ifdef FTE_PEXT_TRANS
+#define	PF_ONGROUND		(1<<22)			// ZQuake extension, 14 offset to extra playerflags
+#define	PF_SOLID		(1<<23)			// ZQuake extension, 15 offset to extra playerflags
+#else
 #define	PF_ONGROUND		(1<<14)			// ZQuake extension
 #define	PF_SOLID		(1<<15)			// ZQuake extension
+#endif
 
 // encoded player move types
 #define PMC_NORMAL				0		// normal ground movement
@@ -362,6 +367,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # endif // FTE_PEXT_SCALE
 # ifdef FTE_PEXT_TRANS
 #  define U_FTE_TRANS		(1<<1)	//transparency value
+#  define	PF_EXTRA_PFS	(1<<15)	//TRANS requires extra playerflags
 #  define	PF_TRANS_Z		(1<<17)
 # endif // FTE_PEXT_TRANS
 # ifdef FTE_PEXT_FATNESS
@@ -460,7 +466,9 @@ typedef struct entity_state_s {
 	int		colormap;
 	int		skinnum;
 	int		effects;
+#ifdef FTE_PEXT_TRANS
 	byte	trans;
+#endif
 } entity_state_t;
 
 #define	MAX_PACKET_ENTITIES			64	// doesn't include nails
