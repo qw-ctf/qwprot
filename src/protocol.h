@@ -55,8 +55,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  if SDL_VERSION_ATLEAST(2,0,5)
 #   define FTE_PEXT2_VOICECHAT			0x00000002
 #  endif // SDL_VERSION_ATLEAST(2,0,5)
-# else
-#  define FTE_PEXT2_VOICECHAT			0x00000002
 # endif // WITH_SPEEX
 #endif // PROTOCOL_VERSION_FTE2
 
