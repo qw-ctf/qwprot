@@ -252,11 +252,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #ifdef FTE_PEXT2_VOICECHAT
 #define clc_voicechat	83		// FTE voice chat.
-#endif
+#endif // FTE_PEXT2_VOICECHAT
 
 #ifdef MVD_PEXT1_SERVERSIDEWEAPON
 #define clc_mvd_weapon 200		// server-side weapon selection
-#endif
+#endif // MVD_PEXT1_SERVERSIDEWEAPON
 
 // these are used in mvd parsing of debug info, even if client doesn't support protocol itself
 // selection options
@@ -590,7 +590,5 @@ typedef struct {
 
 #define MAX_SCOREBOARDNAME	16
 #define	MAX_INFO_STRING		1024
-
-//==============================================
 
 #endif // __PROTOCOL_H__
