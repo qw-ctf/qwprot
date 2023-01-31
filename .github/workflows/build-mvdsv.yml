@@ -29,9 +29,6 @@ jobs:
     steps:
       - name: Checkout qwprot
         uses: actions/checkout@v3
-      - name: list content
-        run: |
-             head src/protocol.h
       - name: Checkout mvdsv
         uses: actions/checkout@master
         with:
@@ -41,7 +38,6 @@ jobs:
       - name: Update qwprot in mvdsv
         run: |
              cp src/* ./mvdsv/src/qwprot/src
-             head ./mvdsv/src/qwprot/src/protocol.h
       - name: Prepare Build Environment
         run: |
              sudo apt-get update
