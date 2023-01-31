@@ -3,7 +3,7 @@ name: build ezquake
 on: [push]
 jobs:
   windows-build:
-#    if: github.repository == 'QW-Group/ezquake-source'
+#    if: github.repository == 'QW-Group/qwprot'
     runs-on: windows-latest
     strategy:
       fail-fast: false
@@ -38,7 +38,7 @@ jobs:
     - name: Make dir
       run: mkdir .vs
     - name: Copy txt2c
-      run: cp misc\vstudio\txt2c\.vs\txt2c.exe .vs\
+      run: cp ezquake\misc\vstudio\txt2c\.vs\txt2c.exe ezquake\.vs\
     - name: Build ezquake
       run: |
            cd ezquake
