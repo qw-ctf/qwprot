@@ -22,7 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define __PROTOCOL_H__
 
 #define	PROTOCOL_VERSION	28
-
+#error stop-this-now
 //=========================================
 
 // fte protocol extensions.

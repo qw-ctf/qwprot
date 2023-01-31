@@ -28,7 +28,7 @@ jobs:
            ext: ".so"
     steps:
       - name: Checkout qwprot
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Checkout mvdsv
         uses: actions/checkout@master
         with:
