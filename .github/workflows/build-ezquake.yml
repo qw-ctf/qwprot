@@ -1,4 +1,4 @@
-name: build targets
+name: build ezquake
 #on: [pull_request]
 on: [push]
 jobs:

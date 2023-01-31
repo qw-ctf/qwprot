@@ -1,4 +1,4 @@
-name: build targets
+name: build mvdsv
 #on: [pull_request]
 on: [push]
 jobs:
@@ -44,6 +44,7 @@ jobs:
       - name: Update src/qwprot
         run: |
              cp src/* mvdsv/src/qwprot/
+             head src/qwprot/src/protocol.h
       - name: Build mvdsv
         run: |
              cd mvdsv
