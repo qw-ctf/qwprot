@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-       target: [linux-amd64, linux-i686, linux-armhf, linux-aarch64, windows-x64, windows-x86]
+       target: [linux-amd64, linux-i686, linux-armhf, linux-aarch64]
        include:
          - target: linux-amd64
            os: linux
@@ -26,14 +26,6 @@ jobs:
            os: linux
            arch: aarch64
            ext: ".so"
-         - target: windows-x64
-           os: windows
-           arch: x64
-           ext: ".dll"
-         - target: windows-x86
-           os: windows
-           arch: x86
-           ext: ".dll"
     steps:
       - name: Checkout qwprot
         uses: actions/checkout@v2
@@ -43,18 +35,15 @@ jobs:
           repository: QW-Group/mvdsv
           path: ./mvdsv
           submodules: recursive
-      - name: Checkout ezquake
-        uses: actions/checkout@master
-        with:
-          repository: QW-Group/ezquake-source
-          path: ./ezquake
-          submodules: recursive
       - name: Prepare Build Environment
         run: |
              sudo apt-get update
              sudo apt-get -y install build-essential cmake gcc-i686-linux-gnu
              sudo apt-get -y install gcc-arm-linux-gnueabihf pkg-config-arm-linux-gnueabihf libc6-dev-armhf-cross gcc-aarch64-linux-gnu libc6-dev-arm64-cross
              sudo apt-get -y install gcc-mingw-w64-x86-64 gcc-mingw-w64-i686
+      - name: Update src/qwprot
+        run: |
+             cp src/* mvdsv/src/qwprot/
       - name: Build mvdsv
         run: |
              cd mvdsv
