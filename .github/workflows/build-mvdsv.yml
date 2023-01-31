@@ -44,7 +44,8 @@ jobs:
       - name: Update src/qwprot
         run: |
              cp src/* mvdsv/src/qwprot/
-             head src/qwprot/src/protocol.h
+             head mvdsv/src/protocol.h
+             head src/protocol.h
       - name: Build mvdsv
         run: |
              cd mvdsv
