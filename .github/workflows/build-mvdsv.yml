@@ -29,6 +29,9 @@ jobs:
     steps:
       - name: Checkout qwprot
         uses: actions/checkout@v3
+      - name: list content
+        run: |
+             head src/protocol.h
       - name: Checkout mvdsv
         uses: actions/checkout@master
         with:
@@ -45,7 +48,6 @@ jobs:
         run: |
              cp src/* mvdsv/src/qwprot/
              head mvdsv/src/qwprot/src/protocol.h
-             head src/protocol.h
       - name: Build mvdsv
         run: |
              cd mvdsv
