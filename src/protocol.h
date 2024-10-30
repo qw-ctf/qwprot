@@ -41,6 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # define FTE_PEXT_ENTITYDBL2		0x00004000	// max of 1024 ents instead of 512
 # define FTE_PEXT_FLOATCOORDS		0x00008000	// supports floating point origins.
 # define FTE_PEXT_SPAWNSTATIC2		0x00400000	// Sends an entity delta instead of a baseline.
+# define FTE_PEXT_COLOURMOD			0x00080000	// Sends three bytes of color modification for an entity
 # define FTE_PEXT_256PACKETENTITIES	0x01000000	// Client can recieve 256 packet entities.
 # define FTE_PEXT_CHUNKEDDOWNLOADS	0x20000000	// alternate file download method. Hopefully it'll give
 												// quadroupled download speed, especially on higher pings.
@@ -388,7 +389,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # define U_FTE_YETMORE	(1<<7)		//even more extension info stuff.
 # define U_FTE_DRAWFLAGS	(1<<8)		//use an extra qbyte for origin parts, cos one of them is off
 # define U_FTE_ABSLIGHT	(1<<9)		//Force a lightlevel
+# ifdef FTE_PEXT_COLOURMOD
 # define U_FTE_COLOURMOD	(1<<10)		//rgb
+# endif // FTE_PEXT_COLOURMOD
 # define U_FTE_DPFLAGS (1<<11)
 # define U_FTE_TAGINFO (1<<12)
 # define U_FTE_LIGHT (1<<13)
@@ -468,6 +471,9 @@ typedef struct entity_state_s {
 	int		effects;
 #ifdef FTE_PEXT_TRANS
 	byte	trans;
+#endif
+#ifdef FTE_PEXT_COLOURMOD
+	byte    colourmod[3];
 #endif
 } entity_state_t;
 
