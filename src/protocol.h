@@ -376,6 +376,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 									//moves verticies along normals
 									// Useful for vacuum chambers...
 # endif // FTE_PEXT_FATNESS
+# ifdef FTE_PEXT_COLOURMOD
+# define	PF_COLOURMOD	(1<<19)
+# endif // FTE_PEXT_COLOURMOD
 # ifdef FTE_PEXT_MODELDBL
 #  define U_FTE_MODELDBL	(1<<3)		//extra bit for modelindexes
 # endif // FTE_PEXT_MODELDBL
